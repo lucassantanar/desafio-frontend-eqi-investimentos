@@ -89,18 +89,18 @@ export default function Home() {
                 <h3>&ensp;</h3>
                 <p>Tipos de indexação</p>
                 <ContainerGroupButton>
-                <div class="control-group">
-                    <label class="control control-checkbox">
-                        First checkbox
-                        <input type="checkbox" checked="checked" />
-                        <div class="control_indicator"></div>
-                    </label>
-                    <label class="control control-checkbox">
-                        Second checkbox
-                        <input type="checkbox" />
-                        <div class="control_indicator"></div>
-                    </label>
-                </div>
+                  <div class="control control-radio border-radius-left"> 
+                          <input type="radio" name="radio" />
+                      <div class="control_indicator border-radius-left">PRÉ</div>
+                  </div>
+                  <div class="control control-radio"> 
+                        <input type="radio" name="radio" />
+                    <div class="control_indicator">PÓS</div>
+                  </div>
+                  <div class="control control-radio border-radius-right">  
+                          <input type="radio" name="radio" />
+                      <div class="control_indicator border-radius-right">FIXADO</div>
+                  </div>
                 </ContainerGroupButton>
                 <span>
                   <label htmlFor="aporte">Aporte Mensal</label>

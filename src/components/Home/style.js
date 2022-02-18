@@ -89,15 +89,16 @@ export const ContainerGráfico = styled.div`
 // ---------- Container GroupButton -----------------
 
 export const ContainerGroupButton = styled.div`
+  display: flex;
+  gap: 1rem;
+
   .control {
-    font-family: arial;
-    display: block;
+    display: flex;
     position: relative;
-    padding-left: 30px;
     margin-bottom: 5px;
-    padding-top: 3px;
     cursor: pointer;
     font-size: 16px;
+    border: 1px solid rgb(187, 187, 187);
   }
   .control input {
     position: absolute;
@@ -105,26 +106,25 @@ export const ContainerGroupButton = styled.div`
     opacity: 0;
   }
   .control_indicator {
-    position: absolute;
-    top: 2px;
-    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 30px;
-    width: 35px;
+    width: 75px;
     background: #e6e6e6;
     border: 0px solid #000000;
-    border-radius: 0px;
   }
   .control:hover input ~ .control_indicator,
   .control input:focus ~ .control_indicator {
-    background: #e7d0c1;
+    background: #e98a50;
   }
 
   .control input:checked ~ .control_indicator {
-    background: #e7894f;
+    background: #ed8e53;
   }
   .control:hover input:not([disabled]):checked ~ .control_indicator,
   .control input:checked:focus ~ .control_indicator {
-    background: #e7d0c1;
+    background: #ed8e53;
   }
   .control input:disabled ~ .control_indicator {
     background: #e6e6e6;
@@ -140,17 +140,26 @@ export const ContainerGroupButton = styled.div`
   .control input:checked ~ .control_indicator:after {
     display: block;
   }
-  .control-checkbox .control_indicator:after {
-    left: 8px;
-    top: 4px;
-    width: 3px;
-    height: 8px;
-    border: solid #ff0000;
-    border-width: 0 2px 2px 0;
-    transform: rotate(45deg);
+
+  .control-radio .control_indicator:after {
+    left: 7px;
+    top: 7px;
+    height: 6px;
+    width: 6px;
+    border-radius: 50%;
+    background: transparent;
+    transition: background 250ms;
   }
-  .control-checkbox input:disabled ~ .control_indicator:after {
-    border-color: #7b7b7b;
+  .control-radio input:disabled ~ .control_indicator:after {
+    background: #7b7b7b;
+  }
+
+  .border-radius-left {
+    border-radius: 15px 0 0 15px;
+  }
+
+  .border-radius-right {
+    border-radius: 0 15px 15px 0;
   }
 `;
 
