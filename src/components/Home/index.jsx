@@ -77,13 +77,16 @@ export default function Home() {
         <Main className="container">
           <ContainerParametros> 
             {/* Formulário Rendimento */}
-            <section>
+            <form id='form1'>
               <ContainerInputButton id="containerBotao1">
                 <h3>Simulador</h3>
                 <p>Rendimento</p>
                 <ContainerGroupButton>
-                  <button id='rendimentoBruto' onClick={(event) => recebeValor(event)} className="botaoEsquerdo">Bruto</button>
-                  <button id='rendimentoLiquido' onClick={(event) => recebeValor(event)} className="botaoDireito">Líquido</button>
+                <input type="radio" id="d1" name="cc" />
+                  <label class="border-radius-esquerda" for="d1">Bruto</label>
+
+                  <input type="radio" id="d2" name="cc" />
+                  <label class="border-radius-direita" for="d2">Líquido</label>
                 </ContainerGroupButton>
                 <span>
                   <label htmlFor="aporteInicial">Aporte Inicial</label>
@@ -102,18 +105,23 @@ export default function Home() {
                   <button className="btn limparCampos">Limpar Campos</button>
                 </ButtonStyled>
               </ContainerInputButton>
-            </section>
+            </form>
             
             {/* Formulário Tipos de indexação */}
 
-            <section>
+            <form id='form2'>
               <ContainerInputButton id="form2">
                 <h3>&ensp;</h3>
                 <p>Tipos de indexação</p>
                 <ContainerGroupButton id='containerBotao2'>
-                  <button id='rendimentoBruto' onClick={(event) => recebeValor(event)} className="botaoEsquerdo">PRÉ</button>
-                  <button id='rendimentoBruto' onClick={(event) => recebeValor(event)} className="botaoEsquerdo">PÓS</button>
-                  <button id='rendimentoLiquido' onClick={(event) => recebeValor(event)} className="botaoDireito">FIXADO</button>
+                  <input type="radio" id="c1" name="cc" />
+                  <label class="border-radius-esquerda" for="c1">PRÉ</label>
+
+                  <input type="radio" id="c2" name="cc" />
+                  <label for="c2" class="border-radius-centro">PÓS</label>
+
+                  <input type="radio" id="c3" name="cc" />
+                  <label class="border-radius-direita" for="c3">FIXADO</label>
                 </ContainerGroupButton>
                 <span>
                   <label htmlFor="aporte">Aporte Mensal</label>
@@ -132,7 +140,7 @@ export default function Home() {
                   <button onClick={submeteFormulario} className="btn simular">Simular</button>
                 </ButtonStyled>
               </ContainerInputButton>
-            </section>
+            </form>
           
           </ContainerParametros>
           <ContainerGráfico>Gráfico</ContainerGráfico>

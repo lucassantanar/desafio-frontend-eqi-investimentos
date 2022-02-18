@@ -33,20 +33,28 @@ export const Main = styled.main`
   height: 85%;
   display: flex;
   background-color: green;
+
+  @media(max-width: 800px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
-export const ContainerParametros = styled.form`
+export const ContainerParametros = styled.section`
   display: flex;
   width: 45%;
   background-color: blue;
 
-  section {
+  @media(max-width: 800px) {
+    width: 100%;
+  }
+
+  form {
     width: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 1rem;
   }
 
   input[type='text'] {
@@ -68,46 +76,67 @@ export const ContainerInputButton = styled.div`
 
   p {
     align-self: flex-start;
+    margin: 0.5rem 0;
   }
 
   h3 {
     align-self: flex-start;
+    margin: 0;
   }
 
   span {
     display: flex;
     flex-direction: column;
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 `;
 
-export const ContainerGráfico = styled.div`
+export const ContainerGráfico = styled.section`
   width: 55%;
   background-color: yellow;
+
+  @media(max-width: 800px) {
+    width: 100%;
+  }
 `;
 
 // ---------- Container GroupButton -----------------
 
 export const ContainerGroupButton = styled.div`
-  .botaoEsquerdo {
-    background: green;
+  display: flex;
+  margin-bottom: 0.5rem;
 
-    &:active {
-    background-color: orange;
+  input[type="radio"] {
+  display:none;
+}
 
-    &:focus {
-    background-color: orange;
-  }
+input[type="radio"] + label {
+  background-color: rgb(212, 212, 212);
+  border: 1px solid rgb(172, 172, 172);
+  display:flex;
+  justify-content: center;
+  align-content: center;
+  width: 4rem;
+  height: 1rem;
+  padding-top: 0.1rem;
+  margin: 0.1rem;
+  cursor:pointer;
+}
+input[type="radio"]:checked + label {
+  background-color: #e98a50;
+}
 
-  .botaoDireito {
-    background: green;
+.border-radius-centro {
+  border-radius: 2px;
+}
 
-    &:active {
-    background-color: orange;}
+.border-radius-esquerda {
+  border-radius: 5px 0 0 5px;
+}
 
-    &:target {
-    background-color: orange;}
-  }
+.border-radius-direita {
+  border-radius: 0 5px 5px 0;
+}
 
 `;
 
@@ -129,12 +158,10 @@ export const ButtonStyled = styled.div`
     -webkit-align-self: center;
     -ms-flex-item-align: center;
     align-self: center;
-    margin: 20px;
-    padding: 1.2em 2.8em;
+    padding: 0.5rem 1.5rem;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
-    /* font-weight: 700; */
   }
 
   .btn:hover,
@@ -160,6 +187,6 @@ export const ButtonStyled = styled.div`
     transition: all 150ms ease-in-out;
   }
   .simular:hover {
-    box-shadow: 0 0 10px 0 #ed8e53 inset, 0 0 10px 4px #ed8e53;
+    box-shadow: 0 0 10px 0 #ed8e53 inset, 0 0 10px 1px #ed8e53;
   }
 `;
