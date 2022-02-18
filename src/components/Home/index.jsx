@@ -15,7 +15,8 @@ import { api } from '../../utils/api'
 
 export default function Home() {
   const [indicadores, setIndicadores] = useState();
-  const [clickButton, setClickButton] = useState(Boolean);
+  const [valorBotao, setValorBotao] = useState('');
+  const [clickButao, setClickBotao] = useState(Boolean)
   const [idButton, setIdButton] = useState();
   
   async function carregaIndicadores() {
@@ -29,15 +30,36 @@ export default function Home() {
     return indicadores;
   }
 
+  function recebeValor(e) {
+    e.preventDefault();
+    setValorBotao(e.target.id)
+
+    const valorBotao = document.getElementById("containerBotao1");
+    valorBotao.addEventListener("click", function(event) {
+        console.log(event.target.id); 
+
+        if(valorBotao == event.target.id) {
+          setClickBotao(Boolean);
+          setClickBotao(true);
+        } else {
+          setClickBotao(Boolean);
+          setClickBotao(false);
+        }
+    })
+
+  }
 
   useEffect(() => {
-    if(indicadores === undefined) {
-      carregaIndicadores();
-    } else {
-      return null;
-    }
+    console.log(valorBotao)
+    console.log(clickButao)
 
-    submeteFormulario();
+    // if(indicadores === undefined) {
+    //   carregaIndicadores();
+    // } else {
+    //   return null;
+    // }
+
+    // submeteFormulario();
   })  
 
   function submeteFormulario(){
@@ -50,18 +72,18 @@ export default function Home() {
     <AppStyled>
       <AppContainer>
         <Header>
-          <h3>Simulador de Investimentos</h3>
+          <h3>Simulador</h3>
         </Header>
         <Main className="container">
           <ContainerParametros> 
             {/* Formulário Rendimento */}
             <section>
-              <ContainerInputButton id="form1">
+              <ContainerInputButton id="containerBotao1">
                 <h3>Simulador</h3>
                 <p>Rendimento</p>
                 <ContainerGroupButton>
-                  <button className="botaoEsquerdo">Bruto</button>
-                  <button className="botaoDireito">Líquido</button>
+                  <button id='rendimentoBruto' onClick={(event) => recebeValor(event)} className="botaoEsquerdo">Bruto</button>
+                  <button id='rendimentoLiquido' onClick={(event) => recebeValor(event)} className="botaoDireito">Líquido</button>
                 </ContainerGroupButton>
                 <span>
                   <label htmlFor="aporteInicial">Aporte Inicial</label>
@@ -88,19 +110,10 @@ export default function Home() {
               <ContainerInputButton id="form2">
                 <h3>&ensp;</h3>
                 <p>Tipos de indexação</p>
-                <ContainerGroupButton>
-                  <div class="control control-radio border-radius-left"> 
-                          <input type="radio" name="radio" />
-                      <div class="control_indicator border-radius-left">PRÉ</div>
-                  </div>
-                  <div class="control control-radio"> 
-                        <input type="radio" name="radio" />
-                    <div class="control_indicator">PÓS</div>
-                  </div>
-                  <div class="control control-radio border-radius-right">  
-                          <input type="radio" name="radio" />
-                      <div class="control_indicator border-radius-right">FIXADO</div>
-                  </div>
+                <ContainerGroupButton id='containerBotao2'>
+                  <button id='rendimentoBruto' onClick={(event) => recebeValor(event)} className="botaoEsquerdo">PRÉ</button>
+                  <button id='rendimentoBruto' onClick={(event) => recebeValor(event)} className="botaoEsquerdo">PÓS</button>
+                  <button id='rendimentoLiquido' onClick={(event) => recebeValor(event)} className="botaoDireito">FIXADO</button>
                 </ContainerGroupButton>
                 <span>
                   <label htmlFor="aporte">Aporte Mensal</label>
